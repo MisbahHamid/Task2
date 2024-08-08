@@ -1,21 +1,15 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter your Email");
+        System.out.println("Enter a date");
         String str=sc.nextLine();
-        Pattern pattern = Pattern.compile("([a-zA-z]+\\d+|[a-zA-z]+||[a-zA-z]+.[a-zA-Z]+)@gmail.com");
-        Matcher matcher = pattern.matcher(str);
-        boolean b=matcher.matches();
-        if (b){
-            System.out.println("Valid");
-        }
-        else{
-            System.out.println("InValid");
-        }
-
+        LocalDate today =LocalDate.now();
+        String nextdate=today.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        System.out.println("before" + today);
+        System.out.println("after" + nextdate);
     }
 }
