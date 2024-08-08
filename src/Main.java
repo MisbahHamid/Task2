@@ -1,20 +1,21 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("enter your string");
-        String str = input.nextLine();
-        boolean flag = true;
-        for (int i =0;i<str.length()/2;i++){
-            if(str.charAt(i)!=str.charAt(str. length()-1-i)){
-                flag =false;
-                break;
-            }
-
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter your Email");
+        String str=sc.nextLine();
+        Pattern pattern = Pattern.compile("([a-zA-z]+\\d+|[a-zA-z]+||[a-zA-z]+.[a-zA-Z]+)@gmail.com");
+        Matcher matcher = pattern.matcher(str);
+        boolean b=matcher.matches();
+        if (b){
+            System.out.println("Valid");
         }
-        String msg =(flag==true)?"it is palindrome":"its is not a palindrome";
-        System.out.println(msg);
+        else{
+            System.out.println("InValid");
+        }
+
     }
 }
