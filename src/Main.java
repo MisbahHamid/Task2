@@ -9,35 +9,27 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Enter a String");
-//        String str = sc.nextLine();
-        String [] strArr = {"dog","racecar","car"};
-       if (strArr.length==0)
-            System.out.println("string is empty");
-        else if(strArr.length==1)
-            System.out.println(strArr[0]);
-        else{
-            String firstStr = strArr[0];
-            for (int i = 1; i < strArr.length ; i++) {
-                String currstr = strArr[i];
-                int j=0;
-                while (j<currstr.length() && j<firstStr.length() &&//abc //abcd
-                currstr.charAt(j)==firstStr.charAt(j)){
-                    j++;
-                }
-                if (j==0) {
-                    System.out.println("this is not matched");
+        Scanner input = new Scanner(System.in);
+       System.out.println("Enter a string:");
+        String str = input.nextLine();
+        String newStr = "";
+        char [] arr = str.toCharArray();
+        for (int i = 0; i < arr.length ; i++) {
+            int j;
+            for (j=0; j<i ;j++){
+                if (arr[i]==arr[j]){
                     break;
                 }
-                firstStr = currstr.substring(0,j);
             }
-            System.out.println(firstStr);
-
-
-        }
-
-
+            if(i==j){
+              newStr += arr[i];
+           }
+       }
+        System.out.println(newStr);
+        char [] arr1 = newStr.toCharArray();
+        Arrays.sort(arr1);
+       newStr = String.valueOf(arr1);
+        System.out.println(newStr);
 
     }
 }
